@@ -4,16 +4,6 @@ from functools import lru_cache
 from typing import Set, List, Generator
 import time
 
-
-
-# Бързо намиране на числа до определена граница
-finder = PrimeNumberFinder(10000)
-results = finder.find_p2_plus_4q2_primes_parallel()
-
-# Генериране на безкраен поток от такива числа
-generator = generate_p2_plus_4q2_primes_stream()
-next_number = next(generator)
-
 # Оптимизирана проверка за простота с кеширане
 @lru_cache(maxsize=10000)
 def is_prime(n: int) -> bool:
@@ -129,3 +119,15 @@ if __name__ == '__main__':
     generator = generate_p2_plus_4q2_primes_stream()
     first_10 = [next(generator) for _ in range(10)]
     print(f"Първите 10 числа от генератора: {first_10}")
+
+
+#########################################################
+
+
+# Бързо намиране на числа до определена граница
+finder = PrimeNumberFinder(10000)
+results = finder.find_p2_plus_4q2_primes_parallel()
+
+# Генериране на безкраен поток от такива числа
+generator = generate_p2_plus_4q2_primes_stream()
+next_number = next(generator)
